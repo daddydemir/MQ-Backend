@@ -2,7 +2,7 @@ package auth
 
 import (
 	"fmt"
-	"github.com/daddydemir/MQ/core"
+	"github.com/daddydemir/MQ-Backend/core"
 	jwt "github.com/dgrijalva/jwt-go"
 	"time"
 )

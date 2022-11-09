@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/daddydemir/MQ/model"
+	"github.com/daddydemir/MQ-Backend/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )

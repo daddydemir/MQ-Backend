@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/daddydemir/MQ/config"
-	"github.com/daddydemir/MQ/handler"
+	"github.com/daddydemir/MQ-Backend/config"
+	"github.com/daddydemir/MQ-Backend/handler"
 	"net/http"
 )
 

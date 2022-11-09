@@ -1,4 +1,4 @@
-module github.com/daddydemir/MQ
+module github.com/daddydemir/MQ-Backend
 
 go 1.17
 

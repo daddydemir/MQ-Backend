@@ -1,10 +1,10 @@
 package service
 
 import (
-	"github.com/daddydemir/MQ/config"
-	"github.com/daddydemir/MQ/core"
-	"github.com/daddydemir/MQ/model"
-	"github.com/daddydemir/MQ/security"
+	"github.com/daddydemir/MQ-Backend/config"
+	"github.com/daddydemir/MQ-Backend/core"
+	"github.com/daddydemir/MQ-Backend/model"
+	"github.com/daddydemir/MQ-Backend/security"
 	"net/http"
 )
 
