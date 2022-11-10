@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func Login(email string, password string) (int, interface{}) {
+func Login(email string, password string) (int, map[string]interface{}) {
 	var user model.Person
 	config.DB.Find(&user, "email = ?", email)
 	if user.Id == 0 {
