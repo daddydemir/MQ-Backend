@@ -1,6 +1,7 @@
 package service
 
 import (
+	"github.com/daddydemir/MQ-Backend/auth"
 	"github.com/daddydemir/MQ-Backend/config"
 	"github.com/daddydemir/MQ-Backend/core"
 	"github.com/daddydemir/MQ-Backend/model"
@@ -17,7 +18,12 @@ func AddHistory(history model.History) (int, interface{}) {
 	}
 }
 
-func GetByPersonId(id string) (int, interface{}) {
+func GetByPersonId(id string, token string) (int, interface{}) {
+	s, m := auth.IsValid(token)
+	if !s {
+		return http.StatusUnauthorized, m
+	}
+	
 	var history []model.History
 	result := config.DB.Find(&history, "person_id = ?", id)
 	if result.Error != nil {
