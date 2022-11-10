@@ -16,7 +16,6 @@ func Login(email string, password string) (int, interface{}) {
 	} else {
 		isTrue := security.CheckPassword(user.Password, password)
 		if isTrue {
-
 			token := GenerateToken(user.Email)
 			send := core.SendMessage(core.Ok)
 			send["data"] = user
