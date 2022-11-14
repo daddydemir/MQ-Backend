@@ -23,9 +23,9 @@ func GetByPersonId(id string, token string) (int, interface{}) {
 	if !s {
 		return http.StatusUnauthorized, m
 	}
-	
+
 	var history []model.History
-	result := config.DB.Find(&history, "person_id = ?", id)
+	result := config.DB.Preload("Person").Find(&history, "person_id = ?", id)
 	if result.Error != nil {
 		return http.StatusBadRequest, core.SendMessage(core.BadRequest)
 	} else {

@@ -28,7 +28,7 @@ func GetAnswersByQuestionId(id string, token string) (int, interface{}) {
 	}
 
 	var answers []model.Answer
-	result := config.DB.Find(&answers, "question_id = ?", id)
+	result := config.DB.Preload("Question").Preload("Person").Find(&answers, "question_id = ?", id)
 	if result.Error != nil {
 		return http.StatusBadRequest, core.SendMessage(core.BadRequest)
 	}
