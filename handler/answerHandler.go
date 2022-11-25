@@ -2,7 +2,7 @@ package handler
 
 import (
 	"encoding/json"
-	"github.com/daddydemir/MQ-Backend/model"
+	"github.com/daddydemir/MQ-Backend/dao"
 	"github.com/daddydemir/MQ-Backend/service"
 	"github.com/gorilla/mux"
 	"io/ioutil"
@@ -21,7 +21,7 @@ func addAnswer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var answer model.Answer
+	var answer dao.AnswerAdd
 	body, _ := ioutil.ReadAll(r.Body)
 	_ = json.Unmarshal(body, &answer)
 

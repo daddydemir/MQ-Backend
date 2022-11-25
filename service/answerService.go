@@ -4,17 +4,22 @@ import (
 	"github.com/daddydemir/MQ-Backend/auth"
 	"github.com/daddydemir/MQ-Backend/config"
 	"github.com/daddydemir/MQ-Backend/core"
+	"github.com/daddydemir/MQ-Backend/dao"
 	"github.com/daddydemir/MQ-Backend/model"
 	"net/http"
+	"time"
 )
 
-func AddAnswer(answer model.Answer, token string) (int, interface{}) {
+func AddAnswer(answer dao.AnswerAdd, token string) (int, interface{}) {
 	s, m := auth.IsValid(token)
 	if !s {
 		return http.StatusUnauthorized, m
 	}
-
-	result := config.DB.Create(&answer)
+	var temp model.Answer
+	temp.QuestionId = answer.QuestionId
+	temp.Content = answer.Content
+	temp.UpdateDate = time.Now()
+	result := config.DB.Create(&temp)
 	if result.Error != nil {
 		return http.StatusBadRequest, core.SendMessage(core.BadRequest)
 	}
